@@ -10,10 +10,11 @@ import GrammarQuiz from './components/GrammarQuiz';
 import Reference from './components/Reference';
 import NietTrainer from './components/NietTrainer';
 import SeparableTrainer from './components/SeparableTrainer';
-import { BookOpen, Blocks, PenTool, CheckSquare, Eraser, Scissors } from 'lucide-react';
+import ComprehensiveTrainer from './components/ComprehensiveTrainer';
+import { BookOpen, Blocks, PenTool, CheckSquare, Eraser, Scissors, Layers } from 'lucide-react';
 
 export default function App() {
-  const [activeTab, setActiveTab] = useState<'builder' | 'verbs' | 'niet' | 'separable' | 'quiz' | 'reference'>('builder');
+  const [activeTab, setActiveTab] = useState<'builder' | 'verbs' | 'niet' | 'separable' | 'comprehensive' | 'quiz' | 'reference'>('builder');
 
   return (
     <div className="min-h-screen bg-slate-50 font-sans text-slate-900">
@@ -69,6 +70,15 @@ export default function App() {
             <span className="hidden sm:inline">Отделяемые</span>
           </button>
           <button
+            onClick={() => setActiveTab('comprehensive')}
+            className={`flex-1 flex items-center justify-center gap-2 py-3 px-4 rounded-lg font-medium transition-colors ${
+              activeTab === 'comprehensive' ? 'bg-blue-50 text-blue-700' : 'text-slate-600 hover:bg-slate-50'
+            }`}
+          >
+            <Layers className="w-5 h-5" />
+            <span className="hidden sm:inline">Сводный</span>
+          </button>
+          <button
             onClick={() => setActiveTab('quiz')}
             className={`flex-1 flex items-center justify-center gap-2 py-3 px-4 rounded-lg font-medium transition-colors ${
               activeTab === 'quiz' ? 'bg-blue-50 text-blue-700' : 'text-slate-600 hover:bg-slate-50'
@@ -94,6 +104,7 @@ export default function App() {
           {activeTab === 'verbs' && <VerbMatrixTrainer />}
           {activeTab === 'niet' && <NietTrainer />}
           {activeTab === 'separable' && <SeparableTrainer />}
+          {activeTab === 'comprehensive' && <ComprehensiveTrainer />}
           {activeTab === 'quiz' && <GrammarQuiz />}
           {activeTab === 'reference' && <Reference />}
         </div>

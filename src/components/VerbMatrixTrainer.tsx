@@ -413,7 +413,7 @@ const CheatSheet = ({ currentTense }: { currentTense: string }) => {
 };
 
 export default function VerbMatrixTrainer() {
-  const [verbTypeFilter, setVerbTypeFilter] = useState<'all' | 'regular' | 'irregular' | 'separable'>('all');
+  const [verbTypeFilter, setVerbTypeFilter] = useState<'all' | 'regular' | 'irregular' | 'separable_regular' | 'separable_irregular' | 'reflexive_regular' | 'reflexive_irregular' | 'reflexive_separable_regular' | 'reflexive_separable_irregular'>('all');
   const [currentVerbIndex, setCurrentVerbIndex] = useState(0);
   const [currentTense, setCurrentTense] = useState(TENSES[0].id);
   

@@ -42,7 +42,7 @@ export default function VerbConjugator() {
     setResults({});
   };
 
-  const handleChange = (field: string, value: string) => {
+  const handleChange = (field: keyof typeof answers, value: string) => {
     setAnswers({ ...answers, [field]: value });
   };
 
